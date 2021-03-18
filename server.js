@@ -10,7 +10,10 @@ const store = {};
  
 
 app.get("/", (req, res) => {
-  res.send("Hello Fang");
+  var data = fs.readFileSync("./server/test.json");
+  var myData = JSON.parse(data); 
+  res.status(200).send(myData);
+
 });
 
 app.listen(port, () => {
